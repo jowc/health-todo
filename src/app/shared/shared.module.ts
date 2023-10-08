@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
+import { HeaderComponent } from './ui/header/header.component';
+import { SidebarComponent } from './ui/sidebar/sidebar.component';
+import { SidebarItemComponent } from './ui/sidebar-item/sidebar-item.component';
 
 @NgModule({
   imports: [HeaderComponent, SidebarComponent, SidebarItemComponent],
