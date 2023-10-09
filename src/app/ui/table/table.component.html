@@ -19,11 +19,7 @@
                         <input type="checkbox" name="task" id="task"
                             class="relative peer block appearance-none outline-none w-4 h-4 ring-1 ring-indigo-500 bg-white checked:bg-indigo-600 rounded" />
                         <label class="block font-bold" for="task">{{item.task}}</label>
-                        <svg class="hidden peer-checked:block absolute w-3 ml-[2px] text-white" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
+                        <fa-icon class="hidden peer-checked:block absolute ml-[2px] w-3 text-white" [icon]="faCheck()" />
                     </td>
                     <td>{{item.description}}</td>
                     <td>{{item.time}}</td>
@@ -47,7 +43,7 @@
 
 
     <div class="my-8 flex justify-end">
-        <button class="flex items-center gap-x-3 py-2 px-3">
+        <button class="flex items-center gap-x-3 py-2 px-3" (click)="addTask()">
             <fa-icon [icon]="faPlus()" />
             <span>Add Task</span>
         </button>
