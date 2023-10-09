@@ -1,0 +1,20 @@
+thead{
+    th{
+        padding: 10px;
+        text-align: left;
+
+        &:first-child{
+            padding-left: 14px;
+        }
+    }
+}
+
+tbody{
+    tr{
+        @apply border-b-2 border-b-slate-100;
+        td{
+            padding: 10px;
+            text-align: left;
+        }
+    }
+}

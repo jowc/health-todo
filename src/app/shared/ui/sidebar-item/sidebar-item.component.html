@@ -1,0 +1,13 @@
+<div class="group bg-indigo-50/70 hover:bg-indigo-200 text-gray-500 flex justify-between items-center gap-x-7 py-3 px-5 font-light cursor-pointer rounded-xl transition-all ease-linear duration-300"
+    [ngClass]="{'!bg-indigo-200 text-indigo-800/80 font-semibold': itemData.active}">
+    <section class="w-1/6 text-gray-500 group-hover:text-indigo-800/80 group-hover:font-semibold"
+        [ngClass]="{'text-indigo-800/80 font-semibold': itemData.active}">
+        <fa-icon [icon]="itemData.icon" />
+    </section>
+    <section class="w-4/6 group-hover:text-indigo-800/80 group-hover:font-semibold">
+        <span>{{itemData.title}}</span>
+    </section>
+    <section class="w-1/6 flex justify-end group-hover:text-indigo-800/80 group-hover:font-semibold">
+        <span>{{itemData.count}}</span>
+    </section>
+</div>
