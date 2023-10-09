@@ -12,6 +12,11 @@
   margin: 0;
   padding: 0;
 }
+
+html,body{
+  height: 100%;
+}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -20,7 +25,11 @@ body {
   color: #191818;
 
   h3{
-    @apply sm:text-center text-xl sm:text-2xl text-indigo-700/80 font-bold;
+    @apply text-xl sm:text-2xl text-indigo-700/80 font-bold;
+  }
+
+  button{
+    @apply bg-indigo-700/80 text-white font-semibold rounded-lg;
   }
 }
 img,

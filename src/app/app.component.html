@@ -1,7 +1,11 @@
 <header>
   <app-header />
 </header>
-<main class="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-6 sm:gap-8">
-  <app-sidebar class="w-full md:w-1/5" />
-  <app-table class="w-full md:w-4/5" />
+<main class="mt-6 sm:mt-10 h-full">
+
+  <div class="grid md:grid-cols-5 gap-8 min-h-[80%]">
+    <app-sidebar class="w-full md:col-span-1" />
+    <app-table class="w-full md:col-span-4" />
+  </div>
+
 </main>
