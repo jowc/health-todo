@@ -1,3 +1,10 @@
+export interface taskInterface {
+  id: number;
+  task: string;
+  description: string;
+  time: string;
+}
+
 export const tasks = [
   {
     id: 1,

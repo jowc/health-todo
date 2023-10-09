@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { MockDataService } from 'src/app/shared/store/mock-data.service';
+import { taskInterface } from 'src/app/shared/store/mock.data';
 
 @Component({
   selector: 'app-table',
@@ -18,11 +19,11 @@ export class TableComponent {
   faDelete = signal(faTrashCan);
   faPlus = signal(faPlus);
 
-  editTask = (task: unknown) => {
-    console.log({ task });
-  };
+  trackTask(index: number, task: taskInterface) {
+    return task.id;
+  }
 
-  deleteTask = (id: number) => {
-    console.log({ id });
-  };
+  editTask = (task: taskInterface) => this.dataService.editTask(task);
+
+  deleteTask = (id: number) => this.dataService.deleteTask(id);
 }

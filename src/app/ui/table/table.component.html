@@ -12,7 +12,7 @@
         </thead>
 
         <tbody>
-            <ng-container *ngFor="let item of dataService.tasks();">
+            <ng-container *ngFor="let item of dataService.tasks(); index as i; trackBy: trackTask">
 
                 <tr>
                     <td class="flex items-center gap-x-4">
@@ -24,10 +24,10 @@
                             stroke-linejoin="round">
                             <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
-                        </td>
+                    </td>
                     <td>{{item.description}}</td>
                     <td>{{item.time}}</td>
-                    
+
                     <td class="grid grid-cols-2">
                         <div class="text-indigo-500 font-bold cursor-pointer" (click)="editTask(item)">
                             <fa-icon [icon]="faEdit()" />
@@ -35,9 +35,13 @@
                         <div class="text-red-500 font-bold cursor-pointer" (click)="deleteTask(item.id)">
                             <fa-icon [icon]="faDelete()" />
                         </div>
-                        </td>
-                        </tr>
-</ng-container>
+                    </td>
+                    </tr>
+
+            </ng-container>
+            <tr *ngIf="!dataService.tasks().length">
+                <section class="text-center p-5">No task added. :( </section>
+            </tr>
         </tbody>
     </table>
 
