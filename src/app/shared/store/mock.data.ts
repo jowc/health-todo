@@ -1,6 +1,4 @@
-import { signal } from '@angular/core';
-
-export const tasks = signal([
+export const tasks = [
   {
     id: 1,
     task: 'Clean the room',
@@ -31,4 +29,4 @@ export const tasks = signal([
     description: 'Include the living room and parking store.',
     time: '9:00 pm',
   },
-]);
+];
