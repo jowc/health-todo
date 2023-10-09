@@ -1,1 +1,59 @@
-<p>edit-task-modal works!</p>
+<div class="p-10">
+    <section class="relative mb-12">
+        <h3 class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 text-gray-800">Edit Task</h3>
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 text-2xl cursor-pointer" (click)="closeModal()">
+            <fa-icon [icon]="faClose()" />
+        </div>
+    </section>
+
+    <form class="flex flex-col gap-y-4" [formGroup]="taskForm" #formDir="ngForm" (submit)="onSubmit()">
+        <section>
+            <input type="text" name="task" id="task" placeholder="Task" formControlName="task">
+
+            <div class="ehealth-error" *ngIf="task?.dirty && task?.invalid">
+                Task must be 3 to 100 characters.
+            </div>
+        </section>
+
+        <section> <textarea rows="6" placeholder="Description" formControlName="description"></textarea>
+            <div class="ehealth-error" *ngIf="description?.dirty && description?.invalid">
+                Task must be 20 to 255 characters.
+            </div>
+        </section>
+        <section class="flex flex-col sm:flex-row justify-between items-center gap-2">
+
+            <div class="w-full sm:w-32 relative text-gray-400" [ngClass]="{'text-gray-800': time?.value}">
+                <select #timeOption class="focus:text-gray-800" name="time" id="time" formControlName="time">
+                    <option class="text-gray-400" value="" selected>Time</option>
+                    <option value="9:00 am">9:00 am</option>
+                    <option value="10:00 am">10:00 am</option>
+                    <option value="11:00 am">11:00 am</option>
+                    <option value="5:00 am">5:00 am</option>
+                </select>
+                <fa-icon class="absolute right-2 top-1/2 -translate-y-1/2 -mt-1 text-2xl font-bold"
+                    [icon]="faSortDown()" (click)="timeOption.click()" />
+            </div>
+
+            <div class="flex items-center gap-x-3 text-gray-400" [ngClass]="{'text-gray-800': taskForm.value.priority}">
+                <label class="block font-semibold" for="task">High priority</label>
+                <div class="relative">
+                    <input
+                        class="peer block appearance-none outline-none w-4 h-4 ring-2 ring-indigo-200 bg-white checked:bg-indigo-600 p-0 rounded"
+                        type="checkbox" name="priority" id="priority" formControlName="priority" />
+                    <fa-icon class="hidden peer-checked:block absolute -top-1 left-[2px] w-3 text-white"
+                        [icon]="faCheck()" />
+                </div>
+            </div>
+
+        </section>
+
+        <div class="ehealth-error" *ngIf="time?.untouched && formDir.submitted">
+            Time must be selected.
+        </div>
+
+        <section class="flex justify-center">
+            <button class="py-2 px-8">Update Task</button>
+        </section>
+
+    </form>
+    </div>

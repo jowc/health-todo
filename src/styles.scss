@@ -13,23 +13,40 @@
   padding: 0;
 }
 
-html,body{
+// material design global variables
+* {
+  --mdc-dialog-container-shape: 16px;
+}
+
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
   height: 100%;
 }
 
 body {
   line-height: 1.5;
+  font-family: 'Poppins', serif;
   -webkit-font-smoothing: antialiased;
 
-//   global styling
+  //   global styling
   color: #191818;
 
-  h3{
-    @apply text-xl sm:text-2xl text-indigo-700/80 font-bold;
+  h3 {
+    @apply text-xl sm:text-2xl text-indigo-700/80 font-semibold;
   }
 
-  button{
-    @apply bg-indigo-700/80 text-white font-semibold rounded-lg;
+  form {
+    input,
+    textarea,
+    select {
+      @apply block appearance-none outline-none w-full p-4 ring-2 ring-indigo-800/30 bg-white checked:bg-indigo-600 placeholder:font-semibold placeholder:text-gray-300 font-semibold rounded;
+    }
+  }
+
+  button {
+    @apply bg-indigo-700/80 hover:bg-indigo-700 text-white font-semibold transition-colors duration-300 rounded-lg;
   }
 }
 img,
@@ -55,6 +72,13 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+//custom classes
+
+.ehealth-error{
+  @apply mt-1 text-red-600 text-sm font-medium;
+}
+
 /*
     8. Create a root stacking context
   */
