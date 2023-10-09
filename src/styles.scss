@@ -27,25 +27,26 @@ body {
 
 body {
   line-height: 1.5;
+  font-family: 'Poppins', serif;
   -webkit-font-smoothing: antialiased;
 
   //   global styling
   color: #191818;
 
   h3 {
-    @apply text-xl sm:text-2xl text-indigo-700/80 font-bold;
+    @apply text-xl sm:text-2xl text-indigo-700/80 font-semibold;
   }
 
   form {
     input,
     textarea,
     select {
-      @apply block appearance-none outline-none w-full p-4 ring-2 ring-indigo-800/30 bg-white checked:bg-indigo-600 placeholder:font-semibold rounded;
+      @apply block appearance-none outline-none w-full p-4 ring-2 ring-indigo-800/30 bg-white checked:bg-indigo-600 placeholder:font-semibold placeholder:text-gray-300 font-semibold rounded;
     }
   }
 
   button {
-    @apply bg-indigo-700/80 text-white font-semibold rounded-lg;
+    @apply bg-indigo-700/80 hover:bg-indigo-700 text-white font-semibold transition-colors duration-300 rounded-lg;
   }
 }
 img,

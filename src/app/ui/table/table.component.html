@@ -1,9 +1,9 @@
-<div class="h-full p-5 sm:p-10 rounded-xl shadow-lg shadow-indigo-100 overflow-auto">
+<div class="h-full p-5 sm:p-10 rounded-xl shadow-card overflow-auto">
     <h3>To-do list</h3>
 
     <table class="mt-3 w-full min-w-[700px] table-fixed sm:table-auto">
-        <thead class="bg-indigo-100 rounded">
-            <tr class="rounded-xl">
+        <thead class="bg-indigo-100/60">
+            <tr>
                 <th>&nbsp; &nbsp; &nbsp; Task</th>
                 <th>Description</th>
                 <th>Time</th>
@@ -11,18 +11,18 @@
             </tr>
         </thead>
 
-        <tbody>
+        <tbody class="mt-2">
             <ng-container *ngFor="let item of dataService.tasks(); index as i; trackBy: trackTask">
 
                 <tr>
                     <td class="flex items-center gap-x-4">
                         <input type="checkbox" name="task" id="task"
-                            class="relative peer block appearance-none outline-none w-4 h-4 ring-1 ring-indigo-500 bg-white checked:bg-indigo-600 rounded" />
+                            class="relative peer block appearance-none outline-none p-[7px] ring-1 ring-indigo-500 bg-white checked:bg-indigo-600 rounded" />
                         <label class="block font-bold" for="task">{{item.task}}</label>
-                        <fa-icon class="hidden peer-checked:block absolute ml-[2px] w-3 text-white" [icon]="faCheck()" />
+                        <fa-icon class="hidden peer-checked:block absolute ml-[2px] w-2 text-white" [icon]="faCheck()" />
                     </td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.time}}</td>
+                    <td class="text-gray-600 font-medium">{{item.description}}</td>
+                    <td class="text-gray-600 font-medium">{{item.time}}</td>
 
                     <td class="grid grid-cols-2">
                         <div class="text-indigo-500 font-bold cursor-pointer" (click)="editTask(item)">
