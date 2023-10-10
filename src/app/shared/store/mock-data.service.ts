@@ -6,14 +6,13 @@ export class MockDataService {
   tasks = signal(tasks);
 
   addTask = (task: taskInterface) => {
-    if (this.tasks.length) {
+    if (this.tasks().length) {
       const lastTask = this.tasks()[this.tasks().length - 1];
       const idTask = { ...task, id: lastTask.id + 1 };
       return this.tasks.mutate((tasks) => tasks.push(idTask));
     }
     const idTask = { ...task, id: 1 };
     return this.tasks.mutate((tasks) => tasks.push(idTask));
-
   };
 
   editTask = (task: taskInterface) => {
