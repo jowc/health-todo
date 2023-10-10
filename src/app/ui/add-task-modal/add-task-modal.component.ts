@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -16,6 +16,8 @@ import {
 } from '@angular/forms';
 import { MockDataService } from 'src/app/shared/store/mock-data.service';
 import { taskInterface } from 'src/app/shared/store/mock.data';
+import { DialogStateService } from '../utils/dialog-state.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-task-modal',
@@ -24,9 +26,11 @@ import { taskInterface } from 'src/app/shared/store/mock.data';
   templateUrl: './add-task-modal.component.html',
   styleUrls: ['./add-task-modal.component.scss'],
 })
-export class AddTaskModalComponent {
+export class AddTaskModalComponent implements OnInit, OnDestroy {
   private readonly dialogRef = inject(MatDialogRef<TableComponent>);
   private readonly mockService = inject(MockDataService);
+  private dialogState = inject(DialogStateService);
+  sub?: Subscription;
   faClose = signal(faXmark);
   faCheck = signal(faCheck);
   faSortDown = signal(faSortDown);
@@ -46,6 +50,16 @@ export class AddTaskModalComponent {
     }),
     priority: new FormControl<boolean>(false),
   });
+
+  ngOnInit(): void {
+    this.sub = this.dialogRef
+      .beforeClosed()
+      .subscribe(() => this.dialogState.dialogClose.next(true));
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
 
   closeModal = () => this.dialogRef.close();
 
