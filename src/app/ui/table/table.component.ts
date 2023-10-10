@@ -61,9 +61,7 @@ export class TableComponent implements OnInit, OnDestroy {
   }
 
   scrollToLatest() {
-    console.log('invoked');
     return timer(300).subscribe(() => {
-      console.log('invoked timer');
       const height = this.tableBody.nativeElement.scrollHeight;
       return (this.tableBody.nativeElement.scrollTop = height);
     });
