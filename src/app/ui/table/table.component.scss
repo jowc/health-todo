@@ -2,14 +2,16 @@ thead{
     th{
         padding: 12px;
         text-align: left;
-        @apply text-gray-500;
+        position: sticky;
+        top: 0;
+        @apply text-gray-500 bg-indigo-100 z-20;
 
         &:first-child{
             padding-left: 14px;
-            border-radius: 8px 0 8px 8px;
+            border-radius: 8px 0 0 8px;
         }
         &:last-child{
-            border-radius: 8px 8px 8px 0;
+            border-radius: 0 8px 8px 0;
         }
     }
 }
